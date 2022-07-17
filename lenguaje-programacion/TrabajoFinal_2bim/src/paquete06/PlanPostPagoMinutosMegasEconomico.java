@@ -16,10 +16,10 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
     private double costoMinutos;
     private int gigas;
     private double costoGigas;
-    private int porcentajeDescuento;
+    private double porcentajeDescuento;
 
     public PlanPostPagoMinutosMegasEconomico(String n, String c, String ciu, String marC,
-            String moC, int nc, int m, double cm, int g, double cgb, int pd) {
+            String moC, int nc, int m, double cm, int g, double cgb, double pd) {
         super(n, c, ciu, marC, moC, nc);
         minutos = m;
         costoMinutos = cm;
@@ -44,7 +44,7 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
         costoGigas = cgb;
     }
 
-    public void establecerPorcentajeDescuento(int pd) {
+    public void establecerPorcentajeDescuento(double pd) {
         porcentajeDescuento = pd;
     }
 
@@ -70,7 +70,7 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
         return costoGigas;
     }
 
-    public int obtenerPorcentajeDescuento() {
+    public double obtenerPorcentajeDescuento() {
         return porcentajeDescuento;
     }
 
@@ -81,7 +81,7 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
                 + "\tCosto minutos: %.2f\n"
                 + "\tGigas: %d\n"
                 + "\tCosto gigas: %.2f\n"
-                + "\tPorcentaje de descuento: %d\n", super.toString(),
+                + "\tPorcentaje de descuento: %.2f\n", super.toString(),
                 minutos, costoMinutos, gigas, costoGigas, porcentajeDescuento);
         return cadena;
     }

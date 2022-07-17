@@ -4,6 +4,8 @@
  */
 package paquete02;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author josed
@@ -17,6 +19,7 @@ public abstract class PlanCelular {
     protected String modeloCelular;
     protected int numeroCelular;
     protected double pagoMensual;
+    protected ArrayList<PlanCelular> lista = new ArrayList<>();
 
     public PlanCelular(String n, String c, String ciu, String marC,
             String moC, int nc) {
@@ -52,6 +55,10 @@ public abstract class PlanCelular {
         numeroCelular = nc;
     }
 
+    public void establecerLista(ArrayList<PlanCelular> l) {
+        lista = l;
+    }
+
     public abstract void establecerPagoMensual();
 
     public String obtenerNombre() {
@@ -82,6 +89,10 @@ public abstract class PlanCelular {
         return pagoMensual;
     }
 
+    public ArrayList<PlanCelular> obtenerLista() {
+        return lista;
+    }
+
     @Override
     public String toString() {
         String cadena = String.format("------DATOS DEL PROPIETARIO------\n"
@@ -94,6 +105,10 @@ public abstract class PlanCelular {
                 + "Pago Mensual: %.2f\n", nombresPropietario, cedulaPropietario,
                 ciudadPropietario, marcaCelular, modeloCelular, numeroCelular,
                 pagoMensual);
+
+        for (PlanCelular p : lista) {
+            cadena += p.toString();
+        }
         return cadena;
     }
 }
