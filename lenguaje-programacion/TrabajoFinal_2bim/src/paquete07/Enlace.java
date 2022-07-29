@@ -9,7 +9,11 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 import paquete03.*;
 import paquete04.*;
 import paquete05.*;
@@ -20,6 +24,9 @@ import paquete06.*;
  * @author josed
  */
 public class Enlace {
+    
+NumberFormat nf = NumberFormat.getNumberInstance(Locale.GERMAN);
+DecimalFormat df = (DecimalFormat)nf;
 
     private Connection conn;
 
@@ -45,6 +52,7 @@ public class Enlace {
 
     public void insertarPostPagoMinutos(PlanPostPagoMinutos plan) {
 
+        
         try {
             establecerConexion();
             Statement statement = obtenerConexion().createStatement();
@@ -53,8 +61,7 @@ public class Enlace {
                     + "numero, minNacional, costoNacional,"
                     + "minInternacional, costoInter, pagoMensual) "
                     + "values ('%s', '%s', '%s', '%s', '%s', "
-                    + "'%s', %.2f, %.2f, "
-                    + "%.2f, %.2f, %.2f)",
+                    + "'%s', %s, %s, %s, %s, %s)",
                     plan.obtenerNombre(),
                     plan.obtenerCedula(),
                     plan.obtenerCiudad(),
@@ -66,11 +73,10 @@ public class Enlace {
                     plan.obtenerMinutosInternacionales(),
                     plan.obtenerCostoInternacional(),
                     plan.obtenerPagoMensual());
-            System.out.println("\n");
             statement.executeUpdate(data);
             obtenerConexion().close();
         } catch (SQLException e) {
-            System.out.println("Exception: insertarPagoMegas");
+            System.out.println("Exception: insertarPagoMinutos");
             System.out.println(e.getMessage());
 
         }
@@ -118,7 +124,7 @@ public class Enlace {
                     + "(nombres, cedula, ciudad, marca, modelo, "
                     + "numero, gb, costoGb, tarifaBase,pagoMensual) "
                     + "values ('%s', '%s', '%s', '%s', '%s', "
-                    + "'%s', %.2f, %.2f,%.2f, %.2f)",
+                    + "'%s', %s, %s,%s, %s)",
                     plan.obtenerNombre(),
                     plan.obtenerCedula(),
                     plan.obtenerCiudad(),
@@ -158,6 +164,7 @@ public class Enlace {
                         rs.getDouble("gb"),
                         rs.getDouble("costoGb"),
                         rs.getDouble("tarifaBase"));
+                plan.establecerPagoMensual();
                 plan.obtenerPagoMensual();
                 lista2.add(plan);
             }
@@ -180,7 +187,7 @@ public class Enlace {
                     + "(nombres, cedula, ciudad, marca, modelo, "
                     + "numero, minutos, costoMinuto, gb, costoGb, pagoMensual) "
                     + "values ('%s', '%s', '%s', '%s', '%s', "
-                    + "'%s', %.2f, %.2f, %.2f, %.2f, %.2f)",
+                    + "'%s', %s, %s, %s, %s, %s)",
                     plan.obtenerNombre(),
                     plan.obtenerCedula(),
                     plan.obtenerCiudad(),
@@ -246,7 +253,7 @@ public class Enlace {
                     + " minutos, costoMinuto, gb, costoGb, porcentajeDes, "
                     + "pagoMensual) "
                     + "values ('%s', '%s', '%s', '%s', '%s', "
-                    + "'%s', %.2f, %.2f, %.2f, %.2f, %.2f)",
+                    + "'%s', %s, %s, %s, %s, %s, %s)",
                     plan.obtenerNombre(),
                     plan.obtenerCedula(),
                     plan.obtenerCiudad(),

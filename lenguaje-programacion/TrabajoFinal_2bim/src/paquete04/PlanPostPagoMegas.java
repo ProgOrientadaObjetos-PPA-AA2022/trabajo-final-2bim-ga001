@@ -38,7 +38,7 @@ public class PlanPostPagoMegas extends PlanCelular {
 
     @Override
     public void establecerPagoMensual() {
-        pagoMensual = ((gb*1000) * costoGb) + tarifaBase;
+        pagoMensual = (gb * costoGb) + tarifaBase;
     }
 
     public double obtenerGb() {

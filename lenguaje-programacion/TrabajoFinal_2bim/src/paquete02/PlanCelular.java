@@ -91,7 +91,7 @@ public abstract class PlanCelular {
                 + "Marca del celular: %s\n"
                 + "Modelo del celular: %s\n"
                 + "Numero de celular: %s\n"
-                + "Pago Mensual: %.2f\n", nombresPropietario, cedulaPropietario,
+                + "Pago Mensual: %.2f", nombresPropietario, cedulaPropietario,
                 ciudadPropietario, marcaCelular, modeloCelular, numeroCelular,
                 pagoMensual);
         return cadena;

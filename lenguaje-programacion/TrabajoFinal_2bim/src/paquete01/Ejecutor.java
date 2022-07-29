@@ -28,7 +28,7 @@ public class Ejecutor {
         Scanner sc = new Scanner(System.in);
         sc.useLocale(Locale.US);
 
-        ArrayList<PlanCelular> lista = new ArrayList<>();
+        //ArrayList<PlanCelular> lista = new ArrayList<>();
         Enlace e = new Enlace();
         boolean bandera = true;
 
@@ -69,7 +69,7 @@ public class Ejecutor {
                             costoMinutosI);
                     a.establecerPagoMensual();
                     e.insertarPostPagoMinutos(a);
-                    lista.add(a);
+                    //lista.add(a);
                     break;
                 case 2:
                     System.out.print("Ingrese el nombre del cliente: ");
@@ -95,7 +95,7 @@ public class Ejecutor {
                             numeroCelular, numeroMegas, costoMegas, tarifaBase);
                     b.establecerPagoMensual();
                     e.insertarPostPagoMegas(b);
-                    lista.add(b);
+                    //lista.add(b);
                     break;
                 case 3:
                     System.out.print("Ingrese el nombre del cliente: ");
@@ -124,7 +124,7 @@ public class Ejecutor {
                             costoMegas);
                     c.establecerPagoMensual();
                     e.insertarPostPagoMinutosMegas(c);
-                    lista.add(c);
+                    //lista.add(c);
                     break;
                 case 4:
                     System.out.print("Ingrese el nombre del cliente: ");
@@ -157,7 +157,7 @@ public class Ejecutor {
                                     costoMegas, porcentajeDescuento);
                     d.establecerPagoMensual();
                     e.insertarPostPagoMinutosMegasEc(d);
-                    lista.add(d);
+                    //lista.add(d);
                     break;
                 case 5:
                     System.out.println("----------"
@@ -169,6 +169,34 @@ public class Ejecutor {
                     System.out.println("\nOPCIÓN INVÁLIDA\n");
                     break;
             }
+        }
+        
+        System.out.println("------------------------------PLAN POST PAGO "
+                    + "MINUTOS -------------------------------");
+        for (int i = 0; i < e.obtenerDataPostPagoMinutos().size(); i++) {
+            
+            System.out.printf("%s\n", e.obtenerDataPostPagoMinutos().get(i));
+        }
+        
+        System.out.println("------------------------------PLAN POST PAGO "
+                    + "MEGAS -------------------------------");
+        for (int i = 0; i < e.obtenerDataPostPagoMegas().size(); i++) {
+            
+            System.out.printf("%s\n", e.obtenerDataPostPagoMegas().get(i));
+        }
+        
+        System.out.println("------------------------------PLAN POST PAGO "
+                    + "MINUTOS MEGAS -------------------------------");
+        for (int i = 0; i < e.obtenerDataPostPagoMinutosMegas().size(); i++) {
+            
+            System.out.printf("%s\n", e.obtenerDataPostPagoMinutosMegas().get(i));
+        }
+        
+        System.out.println("------------------------------PLAN POST PAGO "
+                    + "MINUTOS MEGAS ECONOMICO-------------------------------");
+        for (int i = 0; i < e.obtenerDataPostPagoMinutosMegasEc().size(); i++) {
+            
+            System.out.printf("%s\n", e.obtenerDataPostPagoMinutosMegasEc().get(i));
         }
 
     }
