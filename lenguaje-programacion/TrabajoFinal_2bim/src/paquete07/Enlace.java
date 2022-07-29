@@ -10,7 +10,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Locale;
@@ -24,9 +23,6 @@ import paquete06.*;
  * @author josed
  */
 public class Enlace {
-    
-NumberFormat nf = NumberFormat.getNumberInstance(Locale.GERMAN);
-DecimalFormat df = (DecimalFormat)nf;
 
     private Connection conn;
 
