@@ -4,8 +4,6 @@
  */
 package paquete02;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author josed
@@ -17,12 +15,11 @@ public abstract class PlanCelular {
     protected String ciudadPropietario;
     protected String marcaCelular;
     protected String modeloCelular;
-    protected int numeroCelular;
+    protected String numeroCelular;
     protected double pagoMensual;
-    protected ArrayList<PlanCelular> lista = new ArrayList<>();
 
     public PlanCelular(String n, String c, String ciu, String marC,
-            String moC, int nc) {
+            String moC, String nc) {
         nombresPropietario = n;
         cedulaPropietario = c;
         ciudadPropietario = ciu;
@@ -51,12 +48,8 @@ public abstract class PlanCelular {
         modeloCelular = moC;
     }
 
-    public void establecerNumeroCelular(int nc) {
+    public void establecerNumeroCelular(String nc) {
         numeroCelular = nc;
-    }
-
-    public void establecerLista(ArrayList<PlanCelular> l) {
-        lista = l;
     }
 
     public abstract void establecerPagoMensual();
@@ -77,20 +70,16 @@ public abstract class PlanCelular {
         return marcaCelular;
     }
 
-    public String ModeloCelular() {
+    public String obtenerModeloCelular() {
         return modeloCelular;
     }
 
-    public int obtenerNumeroCelular() {
+    public String obtenerNumeroCelular() {
         return numeroCelular;
     }
 
     public double obtenerPagoMensual() {
         return pagoMensual;
-    }
-
-    public ArrayList<PlanCelular> obtenerLista() {
-        return lista;
     }
 
     @Override
@@ -101,14 +90,10 @@ public abstract class PlanCelular {
                 + "Ciudad: %s\n"
                 + "Marca del celular: %s\n"
                 + "Modelo del celular: %s\n"
-                + "Numero de celular: %d\n"
+                + "Numero de celular: %s\n"
                 + "Pago Mensual: %.2f\n", nombresPropietario, cedulaPropietario,
                 ciudadPropietario, marcaCelular, modeloCelular, numeroCelular,
                 pagoMensual);
-
-        for (PlanCelular p : lista) {
-            cadena += p.toString();
-        }
         return cadena;
     }
 }

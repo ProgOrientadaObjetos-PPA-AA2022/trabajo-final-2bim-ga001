@@ -12,14 +12,14 @@ import paquete02.PlanCelular;
  */
 public class PlanPostPagoMinutos extends PlanCelular {
 
-    private int minutosNacionales;
+    private double minutosNacionales;
     private double costoNacional;
-    private int minutosInternacionales;
+    private double minutosInternacionales;
     private double costoInternacional;
     
 
     public PlanPostPagoMinutos(String n, String c, String ciu, String marC,
-            String moC, int nc, int mn, double cn, int mi, double ci) {
+            String moC, String nc, double mn, double cn, double mi, double ci) {
         super(n, c, ciu, marC, moC, nc);
         minutosNacionales = mn;
         costoNacional = cn;
@@ -27,7 +27,7 @@ public class PlanPostPagoMinutos extends PlanCelular {
         costoInternacional = ci;
     }
 
-    public void establecerMinutosNacionales(int mn) {
+    public void establecerMinutosNacionales(double mn) {
         minutosNacionales = mn;
     }
 
@@ -35,7 +35,7 @@ public class PlanPostPagoMinutos extends PlanCelular {
         costoNacional = cn;
     }
 
-    public void establecerMinutosInternacionales(int mi) {
+    public void establecerMinutosInternacionales(double mi) {
         minutosInternacionales = mi;
     }
 
@@ -49,7 +49,7 @@ public class PlanPostPagoMinutos extends PlanCelular {
                 + (minutosInternacionales * costoInternacional);
     }
 
-    public int obtenerMinutosNacionales() {
+    public double obtenerMinutosNacionales() {
         return minutosNacionales;
     }
 
@@ -57,7 +57,7 @@ public class PlanPostPagoMinutos extends PlanCelular {
         return costoNacional;
     }
 
-    public int obtenerMinutosInternacionales() {
+    public double obtenerMinutosInternacionales() {
         return minutosInternacionales;
     }
 
@@ -73,9 +73,9 @@ public class PlanPostPagoMinutos extends PlanCelular {
     @Override
     public String toString() {
         String cadena = String.format("%s\nPlan Post Pago Minutos\n"
-                + "\tMinutos nacionales: %d\n"
+                + "\tMinutos nacionales: %.2f\n"
                 + "\tCosto nacional: %.2f\n"
-                + "\tMinutos internacionales: %d\n"
+                + "\tMinutos internacionales: %.2f\n"
                 + "\tCosto internacional: %.2f\n",
                 super.toString(),
                 minutosNacionales, costoNacional, minutosInternacionales,

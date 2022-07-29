@@ -12,14 +12,14 @@ import paquete02.PlanCelular;
  */
 public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
 
-    private int minutos;
+    private double minutos;
     private double costoMinutos;
-    private int gigas;
+    private double gigas;
     private double costoGigas;
     private double porcentajeDescuento;
 
     public PlanPostPagoMinutosMegasEconomico(String n, String c, String ciu, String marC,
-            String moC, int nc, int m, double cm, int g, double cgb, double pd) {
+            String moC, String nc, double m, double cm, double g, double cgb, double pd) {
         super(n, c, ciu, marC, moC, nc);
         minutos = m;
         costoMinutos = cm;
@@ -28,7 +28,7 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
         porcentajeDescuento = pd;
     }
 
-    public void establecerMinutos(int m) {
+    public void establecerMinutos(double m) {
         minutos = m;
     }
 
@@ -36,7 +36,7 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
         costoMinutos = cm;
     }
 
-    public void establecerGigas(int g) {
+    public void establecerGigas(double g) {
         gigas = g;
     }
 
@@ -54,7 +54,7 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
         pagoMensual = pagoMensual - (pagoMensual * (porcentajeDescuento / 100));
     }
 
-    public int obtenerMinutos() {
+    public double obtenerMinutos() {
         return minutos;
     }
 
@@ -62,7 +62,7 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
         return costoMinutos;
     }
 
-    public int obtenerGigas() {
+    public double obtenerGigas() {
         return gigas;
     }
 
@@ -77,9 +77,9 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
     @Override
     public String toString() {
         String cadena = String.format("%s\nPlan Post Pago Megas Economico\n"
-                + "\tMinutos: %d\n"
+                + "\tMinutos: %.2f\n"
                 + "\tCosto minutos: %.2f\n"
-                + "\tGigas: %d\n"
+                + "\tGigas: %.2f\n"
                 + "\tCosto gigas: %.2f\n"
                 + "\tPorcentaje de descuento: %.2f\n", super.toString(),
                 minutos, costoMinutos, gigas, costoGigas, porcentajeDescuento);

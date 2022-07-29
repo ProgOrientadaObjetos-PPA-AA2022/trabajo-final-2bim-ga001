@@ -13,48 +13,8 @@ import paquete02.PlanCelular;
  */
 public class Factura {
 
-    private String nombres;
-    private String cedula;
-    private String ciudad;
-    private String marca;
-    private String modelo;
-    private int numero;
     private double pagoMensualTotal;
-    private ArrayList<PlanCelular> lista = new ArrayList<>();
-
-    public Factura(String n, String c, String ci, String m, String mo, int nu, double p) {
-        nombres = n;
-        cedula = c;
-        ciudad = ci;
-        marca = m;
-        modelo = mo;
-        numero = nu;
-        pagoMensualTotal = p;
-    }
-
-    public void establecerNombres(String n) {
-        nombres = n;
-    }
-
-    public void establecerCedula(String c) {
-        cedula = c;
-    }
-
-    public void establecerCiudad(String ci) {
-        ciudad = ci;
-    }
-
-    public void establecerMarca(String m) {
-        marca = m;
-    }
-
-    public void establecerModelo(String mo) {
-        modelo = mo;
-    }
-
-    public void establecerNumero(int nu) {
-        numero = nu;
-    }
+    private ArrayList<PlanCelular> lista;
 
     public void establecerLista(ArrayList<PlanCelular> l) {
         lista = l;
@@ -66,30 +26,6 @@ public class Factura {
         }
     }
 
-    public String obtenerNombres() {
-        return nombres;
-    }
-
-    public String obtenerCedula() {
-        return cedula;
-    }
-
-    public String obtenerCiudad() {
-        return ciudad;
-    }
-
-    public String obtenerMarca() {
-        return marca;
-    }
-
-    public String obtenerModelo() {
-        return modelo;
-    }
-
-    public int obtenerNumero() {
-        return numero;
-    }
-
     public double obtenerPagoMensualTotal() {
         return pagoMensualTotal;
     }
@@ -98,4 +34,15 @@ public class Factura {
         return lista;
     }
     
+    @Override
+    public String toString(){
+        String cadena = "";
+        for(int i = 0; i < lista.size(); i++){
+            cadena = String.format("%s%s\n", cadena, lista.get(i));
+        }
+        cadena = String.format("%sValor Mensual Total a pagar: %.2f", cadena, 
+                pagoMensualTotal);
+        
+      return cadena;
+    }
 }

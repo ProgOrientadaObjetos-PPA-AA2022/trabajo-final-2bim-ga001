@@ -12,13 +12,13 @@ import paquete02.PlanCelular;
  */
 public class PlanPostPagoMinutosMegas extends PlanCelular {
 
-    private int minutos;
+    private double minutos;
     private double costoMinutos;
-    private int gigas;
+    private double gigas;
     private double costoGigas;
 
     public PlanPostPagoMinutosMegas(String n, String c, String ciu, String marC,
-            String moC, int nc, int m, double cm, int g, double cgb) {
+            String moC, String nc, double m, double cm, double g, double cgb) {
         super(n, c, ciu, marC, moC, nc);
         minutos = m;
         costoMinutos = cm;
@@ -26,7 +26,7 @@ public class PlanPostPagoMinutosMegas extends PlanCelular {
         costoGigas = cgb;
     }
 
-    public void establecerMinutos(int m) {
+    public void establecerMinutos(double m) {
         minutos = m;
     }
 
@@ -34,7 +34,7 @@ public class PlanPostPagoMinutosMegas extends PlanCelular {
         costoMinutos = cm;
     }
 
-    public void establecerGigas(int g) {
+    public void establecerGigas(double g) {
         gigas = g;
     }
 
@@ -47,7 +47,7 @@ public class PlanPostPagoMinutosMegas extends PlanCelular {
         pagoMensual = (minutos * costoMinutos) + ((gigas * 1000) * costoGigas);
     }
 
-    public int obtenerMinutos() {
+    public double obtenerMinutos() {
         return minutos;
     }
 
@@ -55,7 +55,7 @@ public class PlanPostPagoMinutosMegas extends PlanCelular {
         return costoMinutos;
     }
 
-    public int obtenerGigas() {
+    public double obtenerGigas() {
         return gigas;
     }
 
@@ -66,9 +66,9 @@ public class PlanPostPagoMinutosMegas extends PlanCelular {
     @Override
     public String toString() {
         String cadena = String.format("%s\nPlan Post Pago Minutos Megas\n"
-                + "\tMinutos: %d\n"
+                + "\tMinutos: %.2f\n"
                 + "\tCosto minutos: %.2f\n"
-                + "\tGigas: %d\n"
+                + "\tGigas: %.2f\n"
                 + "\tCosto gigas: %.2f\n", super.toString(), 
                 minutos, costoMinutos, gigas, costoGigas);
         return cadena;
