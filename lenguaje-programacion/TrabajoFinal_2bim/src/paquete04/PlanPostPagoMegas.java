@@ -12,19 +12,19 @@ import paquete02.PlanCelular;
  */
 public class PlanPostPagoMegas extends PlanCelular {
 
-    private int gb;
+    private double gb;
     private double costoGb;
     private double tarifaBase;
 
     public PlanPostPagoMegas(String n, String c, String ciu, String marC,
-            String moC, int nc, int gib, double cgb, double tb) {
+            String moC, int nc, double gib, double cgb, double tb) {
         super(n, c, ciu, marC, moC, nc);
         gb = gib;
         costoGb = cgb;
         tarifaBase = tb;
     }
 
-    public void establecerGb(int gib) {
+    public void establecerGb(double gib) {
         gb = gib;
     }
 
@@ -38,10 +38,10 @@ public class PlanPostPagoMegas extends PlanCelular {
 
     @Override
     public void establecerPagoMensual() {
-        pagoMensual = (gb * costoGb) + tarifaBase;
+        pagoMensual = ((gb*1000) * costoGb) + tarifaBase;
     }
 
-    public int obtenerGb() {
+    public double obtenerGb() {
         return gb;
     }
 
@@ -56,7 +56,7 @@ public class PlanPostPagoMegas extends PlanCelular {
     @Override
     public String toString() {
         String cadena = String.format("%s\nPlan Post Pago Megas\n"
-                + "\tGigas: %d\n"
+                + "\tGigas: %.2f\n"
                 + "\tCosto gigas: %.2f\n"
                 + "\tTarifa Base: %.2f\n", super.toString(), gb, costoGb, tarifaBase);
         return cadena;
